@@ -67,7 +67,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mattlewis92/angular-calendar.git"
+    "url": "git+https://github.com/smshafa/jalali-angular-calendar.git"
   },
   "keywords": [
     "angular",
@@ -176,7 +176,8 @@
     "angular-resizable-element": "^7.0.0",
     "calendar-utils": "^0.10.4",
     "positioning": "^2.0.1",
-    "tslib": "^2.4.1"
+    "tslib": "^2.4.1",
+    "moment-jalaali": "0.10.0"
   },
   "sideEffects": [
     "*.css",
