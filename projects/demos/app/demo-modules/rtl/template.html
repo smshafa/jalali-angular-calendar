@@ -8,6 +8,9 @@
     [events]="events"
     [activeDayIsOpen]="true"
     [refresh]="refresh"
+    [locale]="locale"
+    [weekStartsOn]="weekStartsOn"
+    [weekendDays]="weekendDays"
     (eventTimesChanged)="eventTimesChanged($event)"
   >
   </mwl-calendar-month-view>
@@ -16,6 +19,9 @@
     [viewDate]="viewDate"
     [events]="events"
     [refresh]="refresh"
+    [locale]="locale"
+    [weekStartsOn]="weekStartsOn"
+    [weekendDays]="weekendDays"
     (eventTimesChanged)="eventTimesChanged($event)"
   >
   </mwl-calendar-week-view>
@@ -24,6 +30,7 @@
     [viewDate]="viewDate"
     [events]="events"
     [refresh]="refresh"
+    [locale]="locale"
     (eventTimesChanged)="eventTimesChanged($event)"
   >
   </mwl-calendar-day-view>

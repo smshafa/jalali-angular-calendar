@@ -12,6 +12,13 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { JalaliAdapter } from '../../../../angular-calendar/src/date-adapters/moment/jalali-date-adapter.provider';
 import { CalendarJalaliDateFormatter } from '../../../../angular-calendar/src/date-adapters/moment/jalali-date-formatter.provider';
 
+import { registerLocaleData } from '@angular/common';
+import localeFa from '@angular/common/locales/fa';
+import localeFaExtra from '@angular/common/locales/extra/fa';
+
+registerLocaleData(localeFa);
+registerLocaleData(localeFa, localeFaExtra);
+
 @NgModule({
   imports: [
     CommonModule,

@@ -4,6 +4,7 @@ import {
   CalendarEvent,
   CalendarEventTimesChangedEvent,
   CalendarView,
+  DAYS_OF_WEEK,
 } from 'angular-calendar';
 import { colors } from '../demo-utils/colors';
 import { addDays, addHours, endOfMonth, startOfDay, subDays } from 'date-fns';
@@ -17,6 +18,9 @@ export class DemoComponent {
   view: CalendarView = CalendarView.Month;
 
   viewDate = new Date();
+  locale: string = 'fa';
+  weekStartsOn: number = DAYS_OF_WEEK.SATURDAY;
+  weekendDays: number[] = [DAYS_OF_WEEK.FRIDAY];
 
   events: CalendarEvent[] = [
     {
