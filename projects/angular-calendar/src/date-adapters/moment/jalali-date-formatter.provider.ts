@@ -12,7 +12,7 @@ export class CalendarJalaliDateFormatter
   implements CalendarDateFormatterInterface
 {
   constructor(protected dateAdapter: DateAdapter) {
-    moment.loadPersian();
+    moment.loadPersian({ usePersianDigits: true });
   }
 
   /**
@@ -33,9 +33,7 @@ export class CalendarJalaliDateFormatter
    * The month view title
    */
   public monthViewTitle({ date, locale }: DateFormatterParams): string {
-    return (
-      moment(date).locale(locale).format('jMMMM') + moment(date).format('jYYYY')
-    );
+    return moment(date).format('jMMMM') + moment(date).format('jYYYY');
   }
 
   /**
