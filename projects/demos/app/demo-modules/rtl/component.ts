@@ -13,10 +13,10 @@ import { addDays, addHours, endOfMonth, startOfDay, subDays } from 'date-fns';
   selector: 'mwl-demo-component',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: 'template.html',
+  styleUrls: ['./rtl-component-styles.scss']
 })
 export class DemoComponent {
   view: CalendarView = CalendarView.Month;
-
   viewDate = new Date();
   locale: string = 'fa';
   weekStartsOn: number = DAYS_OF_WEEK.SATURDAY;
@@ -34,30 +34,34 @@ export class DemoComponent {
         afterEnd: true,
       },
       draggable: true,
+      cssClass: 'cal-cell-event',
+      meta: {showTitle: false}
     },
     {
       start: startOfDay(new Date()),
-      title: 'An event with no end date',
+      title: '$80000',
       color: colors.yellow,
+      cssClass: 'cal-cell-event',
+      meta: {showTitle: true}
     },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
-      allDay: true,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    },
+    // {
+    //   start: subDays(endOfMonth(new Date()), 3),
+    //   end: addDays(endOfMonth(new Date()), 3),
+    //   title: 'A long event that spans 2 months',
+    //   color: colors.blue,
+    //   allDay: true,
+    // },
+    // {
+    //   start: addHours(startOfDay(new Date()), 2),
+    //   end: addHours(new Date(), 2),
+    //   title: 'A draggable and resizable event',
+    //   color: colors.yellow,
+    //   resizable: {
+    //     beforeStart: true,
+    //     afterEnd: true,
+    //   },
+    //   draggable: true,
+    // },
   ];
 
   refresh = new Subject<void>();
