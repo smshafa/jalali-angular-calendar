@@ -1,74 +1,13 @@
 <mwl-demo-utils-calendar-header [(view)]="view" [(viewDate)]="viewDate">
 </mwl-demo-utils-calendar-header>
 
-<ng-template
-  #cellTemplate
-  let-day="day"
-  let-openDay="openDay"
-  let-locale="locale"
-  let-tooltipPlacement="tooltipPlacement"
-  let-highlightDay="highlightDay"
-  let-unhighlightDay="unhighlightDay"
-  let-eventClicked="eventClicked"
-  let-tooltipTemplate="tooltipTemplate"
-  let-tooltipAppendToBody="tooltipAppendToBody"
-  let-tooltipDelay="tooltipDelay"
-  let-trackByEventId="trackByEventId"
-  let-validateDrag="validateDrag">
-  <div
-    class="cal-cell-top"
-    [attr.aria-label]="{ day: day, locale: locale } | calendarA11y : 'monthCell'">
-    <span aria-hidden="true">
-      <span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{
-        day.badgeTotal
-        }}</span>
-      <span class="cal-day-number">{{
-        day.date | calendarDate : 'monthViewDayNumber' : locale
-        }}</span>
-    </span>
-  </div>
-  <div class="cal-cell-events" *ngIf="day.events.length > 0">
-    <div
-      class="cal-event"
-      *ngFor="let event of day.events; trackBy: trackByEventId"
-      [ngStyle]="{ backgroundColor: event.color?.primary }"
-      [ngClass]="event?.cssClass"
-      (mouseenter)="highlightDay.emit({ event: event })"
-      (mouseleave)="unhighlightDay.emit({ event: event })"
-      [mwlCalendarTooltip]="event.title | calendarEventTitle : 'monthTooltip' : event"
-      [tooltipPlacement]="tooltipPlacement"
-      [tooltipEvent]="event"
-      [tooltipTemplate]="tooltipTemplate"
-      [tooltipAppendToBody]="tooltipAppendToBody"
-      [tooltipDelay]="tooltipDelay"
-      mwlDraggable
-      [class.cal-draggable]="event.draggable"
-      dragActiveClass="cal-drag-active"
-      [dropData]="{ event: event, draggedFrom: day }"
-      [dragAxis]="{ x: event.draggable, y: event.draggable }"
-      [validateDrag]="validateDrag"
-      [touchStartLongPress]="{ delay: 300, delta: 30 }"
-      (mwlClick)="eventClicked.emit({ event: event, sourceEvent: $event })"
-      [attr.aria-hidden]="{} | calendarA11y : 'hideMonthCellEvents'"
-    >
-      <ng-container *ngIf="event?.meta.showTitle == true">
-        {{event?.title}}
-      </ng-container>
-    </div>
-  </div>
-</ng-template>
-
 <div [ngSwitch]="view" dir="rtl">
   <mwl-calendar-month-view
     *ngSwitchCase="'month'"
-    [cellTemplate]="cellTemplate"
     [viewDate]="viewDate"
     [events]="events"
     [activeDayIsOpen]="true"
     [refresh]="refresh"
-    [locale]="locale"
-    [weekStartsOn]="weekStartsOn"
-    [weekendDays]="weekendDays"
     (eventTimesChanged)="eventTimesChanged($event)"
   >
   </mwl-calendar-month-view>
@@ -77,9 +16,6 @@
     [viewDate]="viewDate"
     [events]="events"
     [refresh]="refresh"
-    [locale]="locale"
-    [weekStartsOn]="weekStartsOn"
-    [weekendDays]="weekendDays"
     (eventTimesChanged)="eventTimesChanged($event)"
   >
   </mwl-calendar-week-view>
@@ -88,7 +24,6 @@
     [viewDate]="viewDate"
     [events]="events"
     [refresh]="refresh"
-    [locale]="locale"
     (eventTimesChanged)="eventTimesChanged($event)"
   >
   </mwl-calendar-day-view>
