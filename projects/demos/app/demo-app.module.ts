@@ -478,6 +478,14 @@ import { CarbonAdComponent } from './carbon-ad/carbon-ad.component';
           },
         },
         {
+          path: 'jalali',
+          loadChildren: () =>
+            import('./demo-modules/jalali/module').then((m) => m.DemoModule),
+          data: {
+            label: 'Jalali',
+          },
+        },
+        {
           path: 'validate-drag-and-resize',
           loadChildren: () =>
             import('./demo-modules/validate-drag-and-resize/module').then(
