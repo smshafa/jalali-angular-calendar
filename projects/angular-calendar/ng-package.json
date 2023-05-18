@@ -10,6 +10,7 @@
     "angular-resizable-element",
     "calendar-utils",
     "positioning",
-    "@scarf/scarf"
+    "@scarf/scarf",
+    "moment-jalaali"
   ]
 }
